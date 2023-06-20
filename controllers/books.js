@@ -43,7 +43,7 @@ async function edit(req, res){
     res.render('books/edit', {
         book: currentBook,
 		title: `Edit ${currentBook.title}`,
-        errorMsg: 'not working'
+        errorMsg: ''
     })
 }
 
