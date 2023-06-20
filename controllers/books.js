@@ -7,7 +7,8 @@ module.exports = {
     new: newBook,
     create,
     delete: deleteBook,
-    edit
+    edit,
+    update: updateBook
 }
 
 
@@ -34,7 +35,24 @@ function newBook(req, res){
 
 async function edit(req, res){
     const currentBook = await Book.findById(req.params.id)
-    res.render('books/edit')
+    res.render('books/edit', {
+        book: currentBook,
+        errorMsg: 'not working'
+    })
+}
+
+async function updateBook(req, res){
+    try {
+        const bookId = req.params.id
+        const bookBody = req.body
+
+        await Book.findByIdAndUpdate(bookId, bookBody)
+        /// Takes id to find it, req.body is what it is updating
+        res.redirect(`/books/${bookId}`)
+    } catch(err){
+        console.log(err)
+        res.render('error', {errorMsg: err.message})
+    }
 }
 
 

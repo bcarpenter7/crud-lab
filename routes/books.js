@@ -5,19 +5,22 @@ const bookCtrl = require('../controllers/books')
 
 /* GET users listing. */
 
-// POST create
+// POST create (connected to the new, to actually change it)
 router.post('/', bookCtrl.create)
 
 // DELETE
 router.delete('/:id', bookCtrl.delete)
 
-//EDIT
+// PUT (connected to EDIT, to actually change the information)
+router.put('/:id', bookCtrl.update)
+
+// EDIT (gets you to books/edit)
 router.get('/:id/edit', bookCtrl.edit)
 
 // GET all/Index
 router.get('/', bookCtrl.index);
 
-// GET new 
+// GET new (gets you to books/new )
 router.get('/new', bookCtrl.new)
 
 // GET one
