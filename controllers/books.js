@@ -2,7 +2,8 @@ const Book = require("../models/book")
 
 
 module.exports = {
-    index
+    index,
+    show
 }
 
 async function index(req, res){
@@ -11,4 +12,12 @@ async function index(req, res){
         books: booksAll
     }
     res.render('books/index', context)
+}
+
+async function show(req, res){
+    const oneBook = await Book.findById(res.params.id)
+    const context = {
+        book: oneBook
+    }
+    res.render('books/show', context)
 }
