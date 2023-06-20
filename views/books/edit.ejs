@@ -3,22 +3,22 @@
 <form action="/books/<%= book.id %>?_method=PUT" method="POST">
 <label>
 Author:
-<input type="text" name="author">
+<input type="text" name="author" value="<%= book.author %>" autofocus onfocus="this.setSelectionRange(this.value.length, this.value.length)">
 </label>
 
 <label>
 Title:
-<input type="text" name="title">
+<input type="text" name="title" value="<%= book.title %>">
 </label>
 
 <label>
 Page Total:
-<input type="number" name="pages">
+<input type="number" name="pages" value="<%= book.pages %>">
 </label>
 
 <label>
 Genre:
-<input type="text" name="genre">
+<input type="text" name="genre" value="<%= book.genre %>">
 </label>
 
 <button type="submit">Add Book</button>
