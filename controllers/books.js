@@ -15,7 +15,8 @@ module.exports = {
 async function index(req, res){
     const booksAll = await Book.find({})
     const context = {
-        books: booksAll
+        books: booksAll,
+		title: 'Books'
     }
     res.render('books/index', context)
 }
@@ -24,19 +25,24 @@ async function index(req, res){
 async function show(req, res){
     const oneBook = await Book.findById(req.params.id)
     const context = {
-        book: oneBook
+        book: oneBook,
+		title: oneBook.title
     }
     res.render('books/show', context)
 }
 
 function newBook(req, res){
-    res.render('books/new', {errorMsg: ''})
+    res.render('books/new', {
+		errorMsg: '',
+		title: 'New Book'
+	})
 }
 
 async function edit(req, res){
     const currentBook = await Book.findById(req.params.id)
     res.render('books/edit', {
         book: currentBook,
+		title: `Edit ${currentBook.title}`,
         errorMsg: 'not working'
     })
 }

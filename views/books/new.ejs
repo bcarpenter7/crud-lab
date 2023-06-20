@@ -1,31 +1,36 @@
 <%- include('../partials/header') %>
 
-<form action="/books" method="POST">
-<label>
-Author:
-<input type="text" name="author">
-</label>
 
-<label>
-Title:
-<input type="text" name="title">
-</label>
+<div class="container d-flex flex-column flex-md-row justify-content-center mt-5 bg-dark col-md-5">
+	<form class="">
 
-<label>
-Page Total:
-<input type="number" name="pages">
-</label>
+		<div class="mb-2">
+			<label for="exampleInputEmail1" class="form-label">Author</label>
+			<input type="text" class="form-control" id="author" name="author">
+		</div>
 
-<label>
-Genre:
-<input type="text" name="genre">
-</label>
+		<div class="mb-2">
+			<label for="exampleInputEmail1" class="form-label">Title</label>
+			<input type="text" class="form-control" id="title" name="title">
+		</div>
 
-<button type="submit">Add Book</button>
-<p><%= errorMsg %></p>
+		<div class="mb-2">
+			<label for="exampleInputEmail1" class="form-label">Number of Pages</label>
+			<input type="number" class="form-control" id="pages" name="pages">
+		</div>
 
-</form>
+		<div class="mb-2">
+			<label for="exampleInputEmail1" class="form-label">Genre</label>
+			<input type="text" class="form-control" id="genre" name="genre">
+		</div>
+
+		<p>
+			<%= errorMsg %>
+		</p>
+		<button type="submit" class="btn btn-primary">Add Book</button>
+	</form>
+
+</div>
 
 
-
-<%- include('../partials/footer') %>
+	<%- include('../partials/footer') %>
