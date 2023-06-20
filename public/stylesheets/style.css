@@ -6,3 +6,9 @@ body {
 a {
   color: #00B7FF;
 }
+
+#holder {
+  border-radius: 5px;
+  padding: 3vmin 0 3vmin 0;
+  color: white;
+}
