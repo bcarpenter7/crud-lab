@@ -5,7 +5,8 @@ module.exports = {
     index,
     show,
     new: newBook,
-    create
+    create,
+    delete: deleteBook
 }
 
 
@@ -39,4 +40,14 @@ try {
     console.log(err)
     res.render('books/new', {errorMsg: err.message})
 }
+}
+
+async function deleteBook(req, res){
+    try {
+        await Book.findByIdAndDelete(req.params.id)
+        res.redirect('/books')
+    } catch(err){
+        console.log(err)
+        res.render('error', {errorMsg: err.message})
+    }
 }

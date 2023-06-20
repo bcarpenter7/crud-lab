@@ -7,6 +7,7 @@
         <th>Title</th>
         <th>Page Numbers</th>
         <th>Genre</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +18,11 @@
           <td><%= b.title %></td>
           <td><%= b.pages %></td>
           <td><%= b.genre %></td>
+        <td>
+            <form action="/books/<%= b.id %>?_method=DELETE" method="POST">
+                 <button>X</button>
+            </form>
+        </td>
         </tr>
   
       <% }); %>
