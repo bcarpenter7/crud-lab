@@ -1,33 +1,47 @@
 <%- include('../partials/header') %>
-<h2>All Books</h2>
-<table id="example">
-    <thead>
-      <tr>
-        <th>Author</th>
-        <th>Title</th>
-        <th>Page Numbers</th>
-        <th>Genre</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% books.forEach(b => {   %>
-  
-        <tr>
-          <td><%= b.author %></td>
-          <td><a href="/books/<%= b.id %>"><%= b.title %></a></td>
-          <td><%= b.pages %></td>
-          <td><%= b.genre %></td>
-        <td>
-            <form action="/books/<%= b.id %>?_method=DELETE" method="POST">
-                 <button>X</button>
-            </form>
-        </td>
-        </tr>
-  
-      <% }); %>
-    </tbody>
-  </table>
 
 
-<%- include('../partials/footer') %>
+	<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+		<div class="list-group col-md-5">
+
+			<% books.forEach(b=> { %>
+
+				<a a href="/books/<%= b.id %>">
+				<div class="list-group-item list-group-item-action d-flex gap-3 py-3">
+					<img src="https://github.com/twbs.png" alt="twbs" width="32" height="32"
+						class="rounded-circle flex-shrink-0">
+					<div class="d-flex gap-2 w-100 justify-content-between">
+						<div>
+							<h6 class="mb-0">
+								Title: <%= b.title %>
+							</h6>
+							<p class="mb-0 opacity-75">
+								Author: <%= b.author %>
+							</p>
+							<p class="mb-0 opacity-75">
+								Genre: <%= b.genre %>
+							</p>
+						</div>
+						<small class="opacity-50 text-nowrap">
+							Pages: <%= b.pages %>
+						</small>
+					</div>
+					
+					<form action="/books/<%= b.id %>?_method=DELETE" method="POST">
+						<button class="btn btn-sm btn-danger">X</button>
+					</form>
+				</div>
+			</a>
+				<% }); %>
+
+
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<%- include('../partials/footer') %>
