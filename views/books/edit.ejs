@@ -23,9 +23,11 @@
 			<input type="text" class="form-control" id="genre" name="genre" value="<%= book.genre %>">
 		</div>
 
-		<p>
-			<%= errorMsg %>
-		</p>
+		<% if (errorMsg) { %>
+			<p>
+				<%= errorMsg %>	
+			</p>
+		<% } %>
 		<button type="submit" class="btn btn-primary">Add Book</button>
 	</form>
 
