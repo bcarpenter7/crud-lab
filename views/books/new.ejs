@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<form action="/books" method="POST">
+<label>
+Author:
+<input type="text" name="author">
+</label>
+
+<label>
+Title:
+<input type="text" name="title">
+</label>
+
+<label>
+Page Total:
+<input type="number" name="pages">
+</label>
+
+<label>
+Genre:
+<input type="text" name="genre">
+</label>
+
+<button type="submit">Add Book</button>
+<p><%= errorMsg %></p>
+
+</form>
+
+
+
+<%- include('../partials/footer') %>

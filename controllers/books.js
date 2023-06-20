@@ -3,7 +3,8 @@ const Book = require("../models/book")
 
 module.exports = {
     index,
-    show
+    show,
+    new: newBook
 }
 
 async function index(req, res){
@@ -20,4 +21,8 @@ async function show(req, res){
         book: oneBook
     }
     res.render('books/show', context)
+}
+
+function newBook(req, res){
+    res.render('books/new', {errorMsg: ''})
 }
