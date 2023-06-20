@@ -6,7 +6,8 @@ module.exports = {
     show,
     new: newBook,
     create,
-    delete: deleteBook
+    delete: deleteBook,
+    edit
 }
 
 
@@ -20,7 +21,7 @@ async function index(req, res){
 
 
 async function show(req, res){
-    const oneBook = await Book.findById(res.params.id)
+    const oneBook = await Book.findById(req.params.id)
     const context = {
         book: oneBook
     }
@@ -29,6 +30,11 @@ async function show(req, res){
 
 function newBook(req, res){
     res.render('books/new', {errorMsg: ''})
+}
+
+async function edit(req, res){
+    const currentBook = await Book.findById(req.params.id)
+    res.render('books/edit')
 }
 
 
