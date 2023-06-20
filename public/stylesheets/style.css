@@ -12,3 +12,12 @@ a {
   padding: 3vmin 0 3vmin 0;
   color: white;
 }
+
+#icon {
+	background-color: white;
+	width: 4.5vmin;
+	height: 4.5vmin;
+	border: solid .5vmin white;
+	border-radius: 1vmin;
+	text-align: center;
+}

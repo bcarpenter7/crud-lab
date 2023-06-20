@@ -1,10 +1,25 @@
 <%- include('../partials/header') %>
 
-<h2>Results</h2>
-<p>Title:<%= book.title %></p>
-<p>Author:<%= book.author %></p>
-<p>Pages:<%= book.pages %></p>
-<p>Genre:<%= book.genre %></p>
-<a href="/books/<%= book.id %>/edit">Edit Book</a>
+	<div class="my-5">
+		<div class="p-5 text-center bg-body-secondary">
+			<div class="container py-5">
+				<h1 class="text-body-emphasis">
+					<%= book.title %>
+				</h1>
+				<p class="col-lg-8 mx-auto lead">
+					Author: <%= book.author %>
+				</p>
+				<p class="col-lg-8 mx-auto lead">
+					Pages: <%= book.pages %>
+				</p>
+				<p class="col-lg-8 mx-auto lead">
+					Genre: <%= book.genre %>
+				</p>
+				<div class="mt-5">
+					<a href="/books/<%= book.id %>/edit"><button class="btn btn-lg btn-primary" type="button">Edit</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <%- include('../partials/footer') %>
